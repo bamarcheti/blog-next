@@ -4,22 +4,26 @@ export default function Home({ posts }) {
   return (
     <div>
       {posts && posts.map((post) => (
-        <div key={post.id}>
-          <h2>{post.title}</h2>
-        </div>
+        <>
+          <div key={post.attributes.id}>
+            <h2>{post.attributes.title}</h2>
+          </div>
+          <div>{post.attributes.user.data.attributes.username}</div>
+        </>
       ))}
-      Hi everybody!
     </div>
   )
 }
 
 export async function getStaticProps() {
-// get posts from our api
-const res = await axios.get('http://localhost:1337/api/posts')
-const posts = res.data.data
-
+  const { NEXT_PUBLIC_API_URL } = process.env;
+  
+  const res = await axios.get(`${NEXT_PUBLIC_API_URL}/api/posts?populate=*`)
+  const data = res.data.data
 
   return {
-    props: { posts }
+    props: { 
+      posts: data
+     }
   }
 }
