@@ -24,7 +24,15 @@ export async function getStaticPaths() {
    }
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({ params }) {
+  const { NEXT_PUBLIC_API_URL } = process.env;
+  const { slug } = params
 
-  return { props }
+  const res = await axios.get(`${NEXT_PUBLIC_API_URL}/api/posts?slug=${slug}`)
+  const data = await res.data.data
+  const post = data[0]
+
+  return { 
+    props: { post }
+   }
 }
