@@ -4,4 +4,3 @@
 
 > - Instale os pacotes com `npm install`.
 > - Execute `npm run dev` para iniciar o servidor.
-> - 
