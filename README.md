@@ -25,12 +25,7 @@ Projeto construído em curso pela Digital Ocean para o desenvolvimento de um Ful
 
 # **✨ Como executar**
 
-**Para que esse projeto funcione corretamente, é preciso estar com o servidor rodando.**
-
->- Entre na pasta para iniciar a execução `cd blog-next`.
->- Instale os pacotes com `npm install`.
->- Execute `npm run dev` para iniciar o servidor.
-
+- **_[README-install](./README-install.md)_**
 
 ## **💛 Contato**
 
